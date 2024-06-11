@@ -84,8 +84,6 @@ distances = [
 ]
 
 
-
-
 def power_root(input, p):
     return np.power(np.mean(np.power(input, p)), 1 / p)
 def A2_01(input):
@@ -94,6 +92,10 @@ def A2_01(input):
 
 def A2_1(input):
     p = 1
+    return power_root(input, p)
+
+def A2_2(input):
+    p = 2
     return power_root(input, p)
 
 def A2_4(input):
@@ -114,9 +116,10 @@ A4      maximum
 
 
 aggregations = [
-    ("$2_{0.1}$", A2_01),                    # 0
-    ("$2_1$",  np.mean), # arithmetic mean  # 1
-    ("$2_{4}$",  A2_4),                     # 2
-    ("$3$",      np.min),                   # 3
-    ("$4$",      np.max),                   # 4
+    ("$2_{0.1}$", A2_01),                   # 0
+    ("$2_1$",     np.mean), # arithmetic mean  # 1
+    ("$2_{4}$",   A2_4),                     # 2
+    ("$3$",       np.min),                   # 3
+    ("$4$",       np.max),                   # 4
+    ("$2_2$",     A2_2),                     # 5
 ]
